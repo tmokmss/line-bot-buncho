@@ -2,6 +2,7 @@
 #  cat - shows you cat image
 #
 
+{LineImageAction} = require 'hubot-line'
 cat_api_key = process.env.CAT_API_KEY
 
 module.exports = (robot) ->
