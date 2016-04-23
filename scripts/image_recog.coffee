@@ -5,7 +5,7 @@
 
 
 docomo_api_key = process.env.DOCOMO_API_KEY
-
+###
 module.exports = (robot) ->
   robot.listeners.push new LineImageListener robot, (() -> true), (res) ->
     res.message.content (content) -> 0
@@ -14,3 +14,4 @@ module.exports = (robot) ->
           .headers('Content-Type': 'multipart/form-data')
           .query('APIKEY', docomo_api_key)
           .post(previewContent)
+###
