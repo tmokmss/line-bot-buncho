@@ -1,5 +1,6 @@
 #Commands:
-#  hubot image - not yet
+#  hubot image - shows image randomly selected
+#  hubot image <query> - shows image relevent to the query
 #
 
 {LineImageAction} = require 'hubot-line'
@@ -17,9 +18,9 @@ module.exports = (robot) ->
       http = http.query query
     http.get() (err, res, body) ->
       if res.statusCode is 404
-        msg.send process.env.HUBOT_TIQAV_404_MESSAGE or "画像ない"
+        #msg.send process.env.HUBOT_TIQAV_404_MESSAGE or "画像ない"
       else if res.statusCode isnt 200
-        msg.send process.env.HUBOT_TIQAV_ERROR_MESSAGE or "エラーっぽい"
+        #msg.send process.env.HUBOT_TIQAV_ERROR_MESSAGE or "エラーっぽい"
       else
         images = JSON.parse body
         image = msg.random images
