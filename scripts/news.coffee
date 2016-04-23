@@ -16,6 +16,7 @@ module.exports = (robot) ->
         return msg.send('記事取得失敗ちゅん……')
       data = JSON.parse(body)
       text = ['最新ニュースだ']
+      console.log(data)
       for n in [0 .. num]
         title = data["articleContents"][n]["contentData"]["title"]
         url = data["articleContents"][n]["contentData"]["linkUrl"]
