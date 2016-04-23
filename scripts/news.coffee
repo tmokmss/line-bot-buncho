@@ -13,6 +13,7 @@ module.exports = (robot) ->
     request.get(url, (error, response, body) ->
       if error or response.statusCode != 200
         return msg.send('記事取得に失敗しました...')
+      console.log(body)
       data = JSON.parse(body)[0]
       title = data["articleContents"][0]["contentData"]["title"]
       url = data["articleContents"][0]["contentData"]["linkUrl"]
