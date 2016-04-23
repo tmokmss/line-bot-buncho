@@ -13,4 +13,4 @@ module.exports = (robot) ->
       if error or response.statusCode != 200
         return msg.send('画像取得失敗ちゅん……')
       imageurl = JSON.parse(body)["response"]["data"]["images"]["image"]["url"]
-    msg.emote new LineImageAction imageurl, imageurl)
+      msg.emote new LineImageAction imageurl, imageurl)
