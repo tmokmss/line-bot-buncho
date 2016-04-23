@@ -8,7 +8,6 @@ module.exports = (robot) ->
   robot.hear /(.+)(\?|？)/i, (msg) ->
     request = require('request');
     query = "#{msg.match[1]}？"
-    console.log(query)
     query = encodeURIComponent(query)
     url = "https://api.apigw.smt.docomo.ne.jp/knowledgeQA/v1/ask?APIKEY=#{docomo_api_key}&q=#{query}"
     request.get(url, (error, response, body) ->
@@ -17,7 +16,7 @@ module.exports = (robot) ->
       data = JSON.parse(body)
       text = ['教えてやろう\n']
       answer = data["answers"][0]["answerText"]
-      disptext = "それは #{answer} である"
+      disptext = "それは#{answer}である ソース↓"
       if (answer.indexOf("http")==0)
         disptext = "それはこのサイトを見れば分かる"
       url = data["answers"][0]["linkUrl"]
