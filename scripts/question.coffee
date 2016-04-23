@@ -12,8 +12,10 @@ module.exports = (robot) ->
     url = "https://api.apigw.smt.docomo.ne.jp/knowledgeQA/v1/ask?APIKEY=#{docomo_api_key}&q=#{query}"
     request.get(url, (error, response, body) ->
       if error or response.statusCode != 200
-        return msg.send('分かりかねる')
+        return msg.send('また今度聞いてくれ')
       data = JSON.parse(body)
+      if (data["answers"].length == 0)
+        return msg.send('それは私にも分かりかねる')
       text = ['教えてやろう\n']
       answer = data["answers"][0]["answerText"]
       disptext = "それは#{answer}である ソース↓"
