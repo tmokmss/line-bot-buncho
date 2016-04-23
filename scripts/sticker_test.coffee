@@ -2,8 +2,7 @@
 
 module.exports = (robot) ->
   robot.listeners.push new LineStickerListener robot, (() -> true), (res) ->
-
-    valid_stickerID = [
+  valid_stickerID = [
     1
     2
     3
@@ -92,6 +91,5 @@ module.exports = (robot) ->
     428
     429
     430
-    ]
-
-    res.emote new LineStickerAction valid_stickerID[random(valid_stickerID.length)], res.message.STKPKGID
+  ]
+  res.emote new LineStickerAction valid_stickerID[random(valid_stickerID.length)], res.message.STKPKGID
