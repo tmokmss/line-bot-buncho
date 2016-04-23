@@ -1,5 +1,5 @@
 #Commands:
-#  [query]? - bot answers your question
+#  <query>? - bot answers your question
 #
 
 docomo_api_key = process.env.DOCOMO_API_KEY
