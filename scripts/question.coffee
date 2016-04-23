@@ -1,5 +1,5 @@
 #Commands:
-#  [query]? - answer you
+#  [query]? - bot answers your question
 #
 
 docomo_api_key = process.env.DOCOMO_API_KEY
@@ -18,7 +18,7 @@ module.exports = (robot) ->
         return msg.send('それは私にも分かりかねる')
       text = ['教えてやろう\n']
       answer = data["answers"][0]["answerText"]
-      disptext = "それは#{answer}である ソース↓"
+      disptext = "それは#{answer}である\nこのサイトに書いてあったぞ"
       if (answer.indexOf("http")==0)
         disptext = "それはこのサイトを見れば分かる"
       url = data["answers"][0]["linkUrl"]
