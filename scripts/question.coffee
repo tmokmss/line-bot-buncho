@@ -5,9 +5,9 @@
 docomo_api_key = process.env.DOCOMO_API_KEY
 
 module.exports = (robot) ->
-  robot.hear /(.+)\?/i, (msg) ->
+  robot.hear /(.+)(\?|？)/i, (msg) ->
     request = require('request');
-    query = "#{msg.match[1]}?"
+    query = "#{msg.match[1]}？"
     console.log(query)
     query = encodeURIComponent(query)
     url = "https://api.apigw.smt.docomo.ne.jp/knowledgeQA/v1/ask?APIKEY=#{docomo_api_key}&q=#{query}"
@@ -17,8 +17,11 @@ module.exports = (robot) ->
         return msg.send('分かりかねる')
       data = JSON.parse(body)
       text = ['教えてやろう\n']
-      answer = data["message"]["textForDisplay"]
+      answer = data["answers"][0]["answerText"]
+      disptext = "それは#{answer}である"
       url = data["answers"][0]["linkUrl"]
-      text.push(answer)
+      foot = "ちゅんちゅん"
+      text.push(disptext)
       text.push(url)
+      text.push(foot)
       msg.send text.join('\n') )
