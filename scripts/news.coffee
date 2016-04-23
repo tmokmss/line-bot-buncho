@@ -1,5 +1,6 @@
 #Commands:
-#  hubot yama - not yet
+#  hubot newsglist - shows the list of news genre id
+#  hubot newsg [genreId] - shows latest news of specified genre
 #
 
 
@@ -9,7 +10,7 @@ module.exports = (robot) ->
   robot.respond /newsg (.+)/i, (msg) ->
     request = require('request');
     id = msg.match[1]
-    num = 8
+    num = 5
     url = "https://api.apigw.smt.docomo.ne.jp/webCuration/v3/contents?APIKEY=#{docomo_api_key}&genreId=#{id}&s=1&n=#{num}&lang=ja"
     request.get(url, (error, response, body) ->
       if error or response.statusCode != 200
@@ -26,7 +27,6 @@ module.exports = (robot) ->
   robot.respond /newsglist/i, (msg) ->
     request = require('request')
     url = "https://api.apigw.smt.docomo.ne.jp/webCuration/v3/genre?APIKEY=#{docomo_api_key}&lang=ja"
-    console.log(url)
     request.get(url, (error, response, body) ->
       if error or response.statusCode != 200
         return msg.send('ジャンルリスト取得失敗ちゅん……')
