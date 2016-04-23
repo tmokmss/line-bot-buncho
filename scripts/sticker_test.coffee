@@ -93,6 +93,4 @@ module.exports = (robot) ->
       430
     ]
     index = Math.floor(Math.random()*valid_stickerID.length)
-    console.log(index)
-    console.log(res.message.STKID)
-    res.emote new LineStickerAction valid_stickerID[index], res.message.STKPKGID
+    res.emote new LineStickerAction valid_stickerID[index], 1
