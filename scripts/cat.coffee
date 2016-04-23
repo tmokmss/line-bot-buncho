@@ -16,5 +16,5 @@ module.exports = (robot) ->
       console.log(body)
       datajson = parser.toJson body
       console.log(datajson)
-      imageurl = datajson["response"]["data"]["images"]["image"]["url"]
+      imageurl = JSON.parse(datajson)["response"]["data"]["images"]["image"]["url"]
       msg.emote new LineImageAction imageurl, imageurl)
