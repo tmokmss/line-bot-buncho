@@ -2,12 +2,12 @@
 #  hubot yama - not yet
 #
 
-{request} = require 'request'
 
 docomo_api_key = process.env.DOCOMO_API_KEY
 
 module.exports = (robot) ->
   robot.respond /newsg (.+)/i, (msg) ->
+    request = require('request');
     id = msg.match[1]
     url = "https://api.apigw.smt.docomo.ne.jp/webCuration/v3/contents?APIKEY=#{docomo_api_key}&genreId=#{id}&s=1&n=5&lang=ja"
     request.get(url, (error, response, body) ->
