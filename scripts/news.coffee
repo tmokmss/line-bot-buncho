@@ -17,7 +17,7 @@ module.exports = (robot) ->
       data = JSON.parse(body)
       text = ['最新ニュースだ']
       console.log(data)
-      for n in [0 .. num]
+      for n in [0 .. num-1]
         title = data["articleContents"][n]["contentData"]["title"]
         url = data["articleContents"][n]["contentData"]["linkUrl"]
         text.push(title)
