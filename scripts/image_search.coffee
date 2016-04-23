@@ -19,10 +19,12 @@ module.exports = (robot) ->
     http.get() (err, res, body) ->
       if res.statusCode is 404
         #msg.send process.env.HUBOT_TIQAV_404_MESSAGE or "画像ない"
+        return
       else if res.statusCode isnt 200
         #msg.send process.env.HUBOT_TIQAV_ERROR_MESSAGE or "エラーっぽい"
+        return
       else
         images = JSON.parse body
         image = msg.random images
         imageurl = "http://img.tiqav.com/#{image.id}.#{image.ext}"
-      msg.emote new LineImageAction imageurl, imageurl
+        msg.emote new LineImageAction imageurl, imageurl
