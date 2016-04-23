@@ -1,3 +1,7 @@
+#Commands:
+#  hubot yama - not yet
+#
+
 {LineStickerListener} = require 'hubot-line'
 
 ###
