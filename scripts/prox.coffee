@@ -7,5 +7,5 @@ module.exports = (robot) ->
 ###
 
 module.exports = (robot) ->
-  robot.respond /chun/i, (msg) ->
-    msg.send "chunchun"
+  robot.respond /日本語で/i, (msg) ->
+    msg.send "ちゅんちゅん"
