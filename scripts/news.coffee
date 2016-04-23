@@ -9,12 +9,16 @@ module.exports = (robot) ->
   robot.respond /newsg (.+)/i, (msg) ->
     request = require('request');
     id = msg.match[1]
-    url = "https://api.apigw.smt.docomo.ne.jp/webCuration/v3/contents?APIKEY=#{docomo_api_key}&genreId=#{id}&s=1&n=5&lang=ja"
+    num = 5
+    url = "https://api.apigw.smt.docomo.ne.jp/webCuration/v3/contents?APIKEY=#{docomo_api_key}&genreId=#{id}&s=1&n=#{num}&lang=ja"
     request.get(url, (error, response, body) ->
       if error or response.statusCode != 200
-        return msg.send('記事取得に失敗しました...')
-      console.log(body)
+        return msg.send('記事取得失敗ちゅん……')
       data = JSON.parse(body)
-      title = data["articleContents"][0]["contentData"]["title"]
-      url = data["articleContents"][0]["contentData"]["linkUrl"]
-      msg.send "#{title}\n#{url}" )
+      text = ['最新ニュースだ']
+      for n in [0 .. num]
+        title = data["articleContents"][n]["contentData"]["title"]
+        url = data["articleContents"][n]["contentData"]["linkUrl"]
+        text.push(title)
+        text.push(url)
+      msg.send text.join('\n') )
