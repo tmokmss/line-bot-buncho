@@ -23,7 +23,7 @@ module.exports = (robot) ->
         text.push(url)
         text.push('\n')
       msg.send text.join('\n') )
-  robot.respont /newsglist/i, (msg) ->
+  robot.respond /newsglist/i, (msg) ->
     request = require('request')
     url = 'https://api.apigw.smt.docomo.ne.jp/webCuration/v3/genre?APIKEY=#{docomo_api_key}&lang=ja'
     request.get(url, (error, response, body) ->
