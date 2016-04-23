@@ -92,4 +92,4 @@ module.exports = (robot) ->
       429
       430
     ]
-    res.emote new LineStickerAction valid_stickerID[Math.random()*valid_stickerID.length], res.message.STKPKGID
+    res.emote new LineStickerAction valid_stickerID[Math.floor(Math.random()*valid_stickerID.length)], res.message.STKPKGID
