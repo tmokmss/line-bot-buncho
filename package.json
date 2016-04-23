@@ -16,7 +16,7 @@
     "hubot-scripts": "^2.16.2",
     "hubot-weather-ja": "0.1.0",
     "request": "^2.72.0",
-    "xml2json": "	0.9.0"
+    "xml2json": "0.9.0"
   },
   "engines": {
     "node": "0.10.x"
