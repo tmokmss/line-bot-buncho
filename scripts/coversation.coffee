@@ -19,8 +19,12 @@ module.exports = (robot) ->
     })
     option = {
       uri : url
-      json : data
+      headers: {
+        'Content-Type': ' application/json'
       }
+      body : data
+      json : true
+    }
     console.log(option)
     request.post(option, (error, response, body) ->
       if error or response.statusCode != 200
