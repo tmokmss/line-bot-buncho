@@ -6,13 +6,14 @@
 docomo_api_key = process.env.DOCOMO_API_KEY
 
 module.exports = (robot) ->
-  robot.respond /「(.+)」/, (msg) ->
+  robot.hear /「(.+)」/, (msg) ->
     request = require('request');
     utt = msg.match[1]
     url = "https://api.apigw.smt.docomo.ne.jp/dialogue/v1/dialogue?APIKEY=#{docomo_api_key}"
+    console.log(msg.user)
     data = JSON.stringfy({
       "utt" : utt
-      "context" : msg.user.name
+      "context" : "aaa"
       "age" : 12
       "t" : 20
     })
