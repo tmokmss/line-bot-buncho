@@ -18,12 +18,15 @@ module.exports = (robot) ->
       "t" : 20
     })
     option = {
-      "url" : url
+      "uri" : url
+      "method" : "POST"
       "json" : data
       }
     console.log(option)
-    request.post(option, (error, response, body) ->
+    request(option, (error, response, body) ->
       if error or response.statusCode != 200
+        console.log(response.statusCode)
+        console.log(error)
         return msg.send "BEEP BEEP PARSING ERROR"
       data = JSON.parse(body)
       console.log(data)
