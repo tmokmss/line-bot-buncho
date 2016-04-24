@@ -5,7 +5,7 @@
 docomo_api_key = process.env.DOCOMO_API_KEY
 
 module.exports = (robot) ->
-  robot.hear /(.+)(\?|？)/i, (msg) ->
+  robot.hear /(.+)(\?|？)$/i, (msg) ->
     request = require('request');
     query = "#{msg.match[1]}？"
     query = encodeURIComponent(query)
