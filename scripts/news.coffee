@@ -1,6 +1,6 @@
 #Commands:
-#  hubot newsglist - shows the list of news genre id
-#  hubot newsg [genreId] - shows latest news of specified genre
+#  hubot newsglist - ニュースのジャンルリストを表示してくれる
+#  hubot newsg [genreId] - 指定したジャンルの最新ニュースを教えてくれる
 #
 
 
@@ -10,7 +10,7 @@ module.exports = (robot) ->
   robot.respond /newsg (.+)/i, (msg) ->
     request = require('request');
     id = msg.match[1]
-    num = 5
+    num = 10 # 取得件数
     url = "https://api.apigw.smt.docomo.ne.jp/webCuration/v3/contents?APIKEY=#{docomo_api_key}&genreId=#{id}&s=1&n=#{num}&lang=ja"
     request.get(url, (error, response, body) ->
       if error or response.statusCode != 200
@@ -22,7 +22,7 @@ module.exports = (robot) ->
         url = data["articleContents"][n]["contentData"]["linkUrl"]
         text.push(title)
         text.push(url)
-        text.push('\n')
+        #text.push('\n')
       msg.send text.join('\n') )
   robot.respond /newsglist/i, (msg) ->
     request = require('request')

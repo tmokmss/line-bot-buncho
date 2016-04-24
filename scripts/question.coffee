@@ -1,5 +1,5 @@
 #Commands:
-#  <query>? - bot answers your question
+#  <query>? -質問に答えてくれる
 #
 
 docomo_api_key = process.env.DOCOMO_API_KEY
