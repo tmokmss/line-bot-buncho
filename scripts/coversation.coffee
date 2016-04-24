@@ -22,7 +22,7 @@ module.exports = (robot) ->
       "json" : data
       }
     console.log(option)
-    request.get(option, (error, response, body) ->
+    request.post(option, (error, response, body) ->
       if error or response.statusCode != 200
         return msg.send "BEEP BEEP PARSING ERROR"
       data = JSON.parse(body)
