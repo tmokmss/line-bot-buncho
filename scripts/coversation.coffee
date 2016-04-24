@@ -13,21 +13,20 @@ module.exports = (robot) ->
     console.log(msg.user)
     data = JSON.stringify({
       "utt" : utt
-      "context" : "aaa"
-      "age" : 12
-      "t" : 20
+      "context" : "12345"
+      "age" : "12"
+      "t" : "20"
     })
     option = {
-      "uri" : url
-      "method" : "POST"
-      "json" : data
+      uri : url
+      json : data
       }
     console.log(option)
-    request(option, (error, response, body) ->
+    request.post(option, (error, response, body) ->
       if error or response.statusCode != 200
         console.log(response.statusCode)
         console.log(error)
-        return msg.send "BEEP BEEP PARSING ERROR"
+        return
       data = JSON.parse(body)
       console.log(data)
       text = data["utt"]
