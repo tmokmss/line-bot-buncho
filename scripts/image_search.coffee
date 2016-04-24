@@ -1,6 +1,6 @@
 #Commands:
-#  hubot image - shows image randomly selected
-#  hubot image <query> - shows image relevent to the query
+#  hubot image - ランダムな画像を表示してくれる(tiqav API)
+#  hubot image <query> - queryに関連する画像を表示してくれる(tiqav API)
 #
 
 {LineImageAction} = require 'hubot-line'

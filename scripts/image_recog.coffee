@@ -1,6 +1,6 @@
 #Commands:
-#  hubot newsglist - shows the list of news genre id
-#  hubot newsg [genreId] - shows latest news of specified genre
+#  hubot newsglist - ニュースジャンルのリストを教えてくれる
+#  hubot newsg [genreId] - 指定されたジャンルで最新ニュースを教えてくれる
 #
 
 

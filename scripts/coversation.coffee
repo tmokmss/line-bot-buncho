@@ -13,8 +13,8 @@ module.exports = (robot) ->
     data = JSON.stringify({
       "utt" : utt
       "context" : "12345"
-      "sex" : "男"
-      "birthdateY" : "1970"
+      "sex" : "女"
+      "birthdateY" : "1995"
       "age" : "22"
       #"t" : "20"
     })

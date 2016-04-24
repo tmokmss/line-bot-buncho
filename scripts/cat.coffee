@@ -1,5 +1,6 @@
 #Commands:
 #  cat - shows you cat image
+#  ねこ|猫 - 猫画像をくれる
 #
 
 {LineImageAction} = require 'hubot-line'
