@@ -23,7 +23,6 @@ module.exports = (robot) ->
         'Content-Type': ' application/json'
       }
       body : data
-      json : true
     }
     console.log(option)
     request.post(option, (error, response, body) ->
