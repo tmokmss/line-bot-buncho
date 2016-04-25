@@ -12,11 +12,11 @@ module.exports = (robot) ->
     url = "https://api.apigw.smt.docomo.ne.jp/dialogue/v1/dialogue?APIKEY=#{docomo_api_key}"
     data = JSON.stringify({
       "utt" : utt
-      "context" : "1982374892121"
+      "context" : "19823741892121"
       "sex" : "女"
       "birthdateY" : "1995"
       "age" : "18"
-      #"t" : "20"
+      "t" : "30"
     })
     option = {
       uri : url
