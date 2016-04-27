@@ -3,4 +3,4 @@
 
 module.exports = (robot) ->
   robot.hear /.*/, (msg) ->
-    console.log(msg.match[0])
+    console.log("Someone said: #{msg.match[0]}")
